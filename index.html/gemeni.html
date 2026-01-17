@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonipat Career Academy | Premier Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for easy color management */
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #f59e0b;
+            --text-gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 8%;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s transform;
+        }
+
+        .btn-main {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            background: #1d4ed8;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 8%;
+            background: white;
+            margin-top: -50px;
+            width: 84%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .stat-item h3 { font-size: 2rem; color: var(--primary); }
+        .stat-item p { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* Courses Grid */
+        .section { padding: 80px 8%; text-align: center; }
+        .section-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        .section-title { font-size: 2.5rem; margin: 10px 0 50px; }
+
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            transition: 0.4s;
+            text-align: left;
+        }
+
+        .course-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transform: translateY(-10px);
+        }
+
+        .course-card .icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark);
+            color: white;
+            padding: 80px 8%;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-form input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: white;
+        }
+
+        footer {
+            background: var(--dark);
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+            .stats { flex-direction: column; gap: 30px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SONIPAT ACADEMY</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <span class="section-tag">Best Coaching in Haryana</span>
+            <h1>Your Journey to <span>Success</span> Starts Here</h1>
+            <p>Providing top-notch preparation for competitive exams with a track record of 500+ selections from Sonipat.</p>
+            <a href="#contact" class="btn btn-main">Book Free Demo Class</a>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="stat-item"><h3>10+</h3><p>Years Experience</p></div>
+        <div class="stat-item"><h3>500+</h3><p>Success Stories</p></div>
+        <div class="stat-item"><h3>15+</h3><p>Expert Faculty</p></div>
+    </section>
+
+    <section class="section" id="courses">
+        <p class="section-tag">Excellence Guaranteed</p>
+        <h2 class="section-title">Our Specialized Programs</h2>
+        <div class="course-container">
+            <div class="course-card">
+                <div class="icon">🚀</div>
+                <h3>JEE / IIT Prep</h3>
+                <p>Advanced physics, chemistry, and math modules with weekly mock tests.</p>
+            </div>
+            <div class="course-card">
+                <div class="icon">🩺</div>
+                <h3>NEET / Medical</h3>
+                <p>Personalized biology focus and lab-based conceptual learning.</p>
+            </div>
+            <div class="course-card">
+                <div class="icon">📚</div>
+                <h3>CBSE Boards</h3>
+                <p>Foundation courses for 9th to 12th students to ace school exams.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-grid">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Get in Touch</h2>
+                <p style="color: #94a3b8; margin-bottom: 40px;">Located in the heart of Sonipat. Visit us to discuss your academic future.</p>
+                <p><strong>📍 Location:</strong> Sector 15, HUDA Market, Sonipat</p>
+                <p><strong>📞 Phone:</strong> +91 98765 00000</p>
+                <p><strong>📧 Email:</strong> info@sonipatacademy.com</p>
+            </div>
+            <div class="contact-form">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Interested Course">
+                <button class="btn btn-main" style="width: 100%; border: none; cursor: pointer;">Register Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Sonipat Career Academy. Designed for Students.</p>
+    </footer>
+
+</body>
+</html>

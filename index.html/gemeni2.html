@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonipat Academy | Excellence in Education</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; padding: 0; background-color: #08090a;">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const App = () => {
+            const [name, setName] = useState('');
+            const [scrolled, setScrolled] = useState(false);
+
+            const myPhone = "7015084928";
+            const myEmail = "hbalyan03@gmail.com";
+
+            // Track scroll for navbar effect
+            useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const triggerWhatsApp = (courseName = "General") => {
+                const msg = `Hello Sonipat Academy! My name is ${name || 'a student'}. I am inquiring about the ${courseName} batch.`;
+                window.open(`https://wa.me/91${myPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+            };
+
+            const styles = {
+                nav: {
+                    position: 'fixed',
+                    top: 0, width: '100%', height: '80px',
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    padding: '0 10%', boxSizing: 'border-box', zIndex: 1000,
+                    transition: '0.4s ease',
+                    backgroundColor: scrolled ? 'rgba(8, 9, 10, 0.9)' : 'transparent',
+                    backdropFilter: scrolled ? 'blur(15px)' : 'none',
+                    borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none'
+                },
+                logo: {
+                    color: '#fff', fontSize: '22px', fontWeight: '800', 
+                    letterSpacing: '-1px', fontFamily: 'Plus Jakarta Sans'
+                },
+                hero: {
+                    height: '100vh', display: 'flex', flexDirection: 'column',
+                    justifyContent: 'center', alignItems: 'center', textAlign: 'center',
+                    background: 'radial-gradient(circle at 50% 50%, #1a1c1e 0%, #08090a 100%)',
+                    padding: '0 20px'
+                },
+                h1: {
+                    fontSize: 'clamp(48px, 10vw, 90px)', color: '#fff',
+                    fontWeight: '800', margin: '0 0 20px 0', letterSpacing: '-4px',
+                    lineHeight: '0.9'
+                },
+                button: {
+                    padding: '18px 45px', borderRadius: '100px', border: 'none',
+                    backgroundColor: '#3b82f6', color: '#fff', fontWeight: '700',
+                    fontSize: '16px', cursor: 'pointer', transition: '0.3s transform',
+                    boxShadow: '0 10px 25px rgba(59, 130, 246, 0.4)'
+                },
+                input: {
+                    padding: '18px 30px', borderRadius: '100px', 
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: 'rgba(255,255,255,0.05)', color: '#fff',
+                    width: '300px', outline: 'none', fontSize: '16px', marginBottom: '15px'
+                },
+                card: {
+                    backgroundColor: '#111214', padding: '50px', borderRadius: '40px',
+                    border: '1px solid rgba(255,255,255,0.05)', color: '#fff',
+                    transition: '0.3s', flex: '1', minWidth: '280px'
+                }
+            };
+
+            return (
+                <div style={{fontFamily: "'Plus Jakarta Sans', sans-serif"}}>
+                    <nav style={styles.nav}>
+                        <div style={styles.logo}>SONIPAT<span style={{color: '#3b82f6'}}>ACADEMY</span></div>
+                        <div style={{color: '#fff', fontWeight: '600', cursor: 'pointer'}} onClick={() => triggerWhatsApp()}>Connect Now →</div>
+                    </nav>
+
+                    <section style={styles.hero}>
+                        <div style={{color: '#3b82f6', fontWeight: '700', letterSpacing: '2px', marginBottom: '20px'}}>FOUNDED IN HARYANA</div>
+                        <h1 style={styles.h1}>Master Your <br/> Future.</h1>
+                        <p style={{color: '#888', maxWidth: '500px', fontSize: '18px', marginBottom: '40px'}}>
+                            The most advanced coaching ecosystem in Sonipat for JEE, NEET, and Board Exams.
+                        </p>
+                        
+                        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                            <input 
+                                style={styles.input} 
+                                type="text" 
+                                placeholder="Student Name"
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <button 
+                                style={styles.button}
+                                onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                                onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                                onClick={() => triggerWhatsApp()}
+                            >
+                                Secure Your Seat
+                            </button>
+                        </div>
+                    </section>
+
+                    <section style={{padding: '100px 10%', backgroundColor: '#08090a'}}>
+                        <div style={{display: 'flex', gap: '30px', flexWrap: 'wrap'}}>
+                            <div style={styles.card}>
+                                <div style={{fontSize: '40px', marginBottom: '20px'}}>🧪</div>
+                                <h3 style={{fontSize: '24px', fontWeight: '800'}}>IIT JEE</h3>
+                                <p style={{color: '#888'}}>Physics, Chemistry, and Math focus for India's toughest exam.</p>
+                            </div>
+                            <div style={styles.card}>
+                                <div style={{fontSize: '40px', marginBottom: '20px'}}>🧬</div>
+                                <h3 style={{fontSize: '24px', fontWeight: '800'}}>NEET</h3>
+                                <p style={{color: '#888'}}>Specialized biology modules and medical entrance preparation.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer style={{padding: '60px 10%', textAlign: 'center', color: '#444', borderTop: '1px solid #111'}}>
+                        <p>Sonipat Academy | Sector 14 | +91 {myPhone}</p>
+                        <p style={{fontSize: '12px', marginTop: '10px'}}>Official Inquiry: {myEmail}</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
